@@ -1,37 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NexCorp — Next.js
 
-## Getting Started
+Converted from single HTML file to a proper Next.js 14 project with App Router.
 
-First, run the development server:
+## Setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+nexcorp/
+├── app/
+│   ├── layout.tsx          # Root layout, ThemeProvider, metadata
+│   ├── page.tsx            # Home page — composes all sections
+│   └── globals.css         # All global styles + Tailwind directives
+│
+├── components/
+│   ├── Navbar.tsx           # Sticky navbar with scroll blur
+│   ├── MobileMenu.tsx       # Full-screen mobile nav overlay
+│   ├── MobileMenuTrigger.tsx
+│   ├── ThemePanel.tsx       # Slide-out theme switcher (10 themes)
+│   ├── CursorGlow.tsx       # Cursor follow glow effect
+│   ├── Hero.tsx             # Hero section + Three.js canvas
+│   ├── HeroDashboardCard.tsx # Decorative card (pointer-events:none, no overlap)
+│   ├── TypingText.tsx       # Animated typing effect
+│   ├── Marquee.tsx          # Auto-scrolling client logos
+│   ├── Services.tsx         # 6 service cards
+│   ├── About.tsx            # About + animated stat counters
+│   ├── Portfolio.tsx        # 5 portfolio project cards
+│   ├── Team.tsx             # 4 team member cards
+│   ├── Testimonials.tsx     # 3 testimonial cards
+│   ├── Contact.tsx          # Contact info + form
+│   ├── Footer.tsx           # Links + social icons
+│   └── Animations.tsx       # Client: reveal scroll, counters, tilt
+│
+└── hooks/
+    ├── useTheme.tsx         # Theme context — fast switching via rAF
+    └── useReveal.ts         # IntersectionObserver reveal + counter hooks
+```
 
-## Learn More
+## Fixes Applied
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Theme switching lag
+- Old: `document.documentElement.setAttribute('data-theme', ...)` called synchronously on every click
+- Fix: Wrapped in `requestAnimationFrame()` to batch with browser paint cycle
+- Also: CSS transitions scoped only to `background-color` and `color`, not `all`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Dashboard card overlapping text
+- Old: Absolute-positioned floating elements with high z-index could overlap left column
+- Fix: Card lives in separate right column of `lg:grid-cols-2` — physically cannot overlap left text
+- Added `pointer-events: none` to the entire card container
+- Card is `hidden lg:flex` — completely removed on mobile/tablet where overlap was worst
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# nexcorp" 
+### 3. Fragment structure
+- Every section is its own component file
+- Server components where possible (no 'use client' unless needed)
+- Client-only code (Three.js, IntersectionObserver, animations) isolated to leaf components
