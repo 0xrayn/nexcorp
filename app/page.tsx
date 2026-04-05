@@ -31,7 +31,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      {/* Client-side scroll animations & counters */}
       <Animations />
     </>
   )

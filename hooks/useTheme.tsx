@@ -31,18 +31,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState('dark')
 
   useEffect(() => {
+    // Read saved theme from localStorage on mount
     const saved = localStorage.getItem('nexcorp-theme') || 'dark'
     setThemeState(saved)
     document.documentElement.setAttribute('data-theme', saved)
   }, [])
 
   const setTheme = useCallback((name: string) => {
+    // Update React state
     setThemeState(name)
-    // Use requestAnimationFrame to batch DOM update — prevents layout thrash/lag
-    requestAnimationFrame(() => {
-      document.documentElement.setAttribute('data-theme', name)
-    })
-    localStorage.setItem('nexcorp-theme', name)
+    // Update DOM immediately — this is what DaisyUI reads
+    document.documentElement.setAttribute('data-theme', name)
+    // Persist
+    try { localStorage.setItem('nexcorp-theme', name) } catch {}
   }, [])
 
   const currentColors = themes.find(t => t.name === theme)?.colors ?? themes[0].colors

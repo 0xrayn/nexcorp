@@ -3,14 +3,13 @@ module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
+    './hooks/**/*.{js,ts,jsx,tsx}',
   ],
   theme: { extend: {} },
-  plugins: [require('daisyui')],
-  daisyui: {
-    themes: [
-      'dark','light','cupcake','cyberpunk','forest',
-      'aqua','luxury','dracula','nord','sunset'
-    ],
-    darkTheme: 'dark',
+  // DaisyUI loaded via CDN in layout.tsx — only use Tailwind utilities here
+  plugins: [],
+  // Disable preflight since DaisyUI CDN handles base styles
+  corePlugins: {
+    preflight: false,
   },
 }
