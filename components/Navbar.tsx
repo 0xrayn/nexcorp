@@ -20,22 +20,22 @@ export default function Navbar() {
         scrolled ? 'navbar-blur bg-base-100/80 shadow-sm' : ''
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#hero" className="font-display font-bold text-2xl tracking-tight">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+        <a href="#hero" className="font-display font-bold text-xl sm:text-2xl tracking-tight flex-shrink-0">
           Nex<span className="text-primary">Corp</span>
         </a>
 
-        {/* Desktop nav — hidden on mobile/tablet */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#services"   className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary">Layanan</a>
-          <a href="#about"      className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary">Tentang</a>
-          <a href="#portfolio"  className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary">Portfolio</a>
-          <a href="#contact"    className="btn btn-primary btn-sm rounded-full px-6 btn-glow">Hubungi Kami</a>
+        {/* Desktop nav — visible ONLY md and above */}
+        <div className="navbar-desktop-links items-center gap-6 lg:gap-8">
+          <a href="#services"  className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Layanan</a>
+          <a href="#about"     className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Tentang</a>
+          <a href="#portfolio" className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Portfolio</a>
+          <a href="#contact"   className="btn btn-primary btn-sm rounded-full px-5 btn-glow whitespace-nowrap">Hubungi Kami</a>
         </div>
 
-        {/* Hamburger — ONLY on mobile/tablet, hidden on md and above */}
+        {/* Hamburger — ONLY mobile/tablet */}
         <button
-          className="flex md:hidden btn btn-ghost btn-sm"
+          className="navbar-hamburger btn btn-ghost btn-sm p-1"
           onClick={openMenu}
           aria-label="Buka menu"
         >

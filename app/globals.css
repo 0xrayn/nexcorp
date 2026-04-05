@@ -31,17 +31,67 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 /* ── Cursor glow ── */
 #cursor-glow { position: fixed; width: 320px; height: 320px; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: opacity .3s; mix-blend-mode: screen; opacity: 0; }
 
-/* ── Theme switcher panel ── */
-#theme-panel { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 1000; transition: transform .4s var(--ease-out-expo); }
-#theme-panel.hidden-panel { transform: translateY(-50%) translateX(calc(100% - 44px)); }
-.theme-dot { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all .2s; flex-shrink: 0; display: block; }
+/* ────────────────────────────────────────────
+   NAVBAR — hamburger & desktop links
+   Tailwind's responsive classes can get
+   overridden by DaisyUI CDN. Use explicit CSS.
+──────────────────────────────────────────── */
+.navbar-desktop-links { display: none; }
+.navbar-hamburger { display: flex; }
+
+@media (min-width: 768px) {
+  .navbar-desktop-links { display: flex; }
+  .navbar-hamburger { display: none !important; }
+}
+
+/* ────────────────────────────────────────────
+   THEME SWITCHER PANEL — smooth & responsive
+──────────────────────────────────────────── */
+#theme-panel {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 1000;
+  transform: translateY(-50%);
+  transition: transform .35s var(--ease-out-expo);
+}
+.theme-panel-closed { transform: translateY(-50%) translateX(calc(100% - 36px)) !important; }
+.theme-panel-open   { transform: translateY(-50%) translateX(0) !important; }
+
+/* Smaller on mobile so it doesn't cover content */
+.theme-toggle-btn {
+  width: 36px;
+  min-height: 100px;
+  flex-shrink: 0;
+  transition: background-color .2s;
+}
+
+@media (min-width: 768px) {
+  .theme-toggle-btn { width: 44px; min-height: 120px; }
+  .theme-panel-closed { transform: translateY(-50%) translateX(calc(100% - 44px)) !important; }
+}
+
+.theme-dot { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: border-color .15s, transform .15s; flex-shrink: 0; display: block; }
 .theme-dot:hover, .theme-dot.active { border-color: white; transform: scale(1.2); }
+
+@media (min-width: 768px) {
+  .theme-dot { width: 26px; height: 26px; }
+}
+
+/* ── SMOOTH theme transition — only color/bg, no layout thrash ── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+/* Re-override for elements that need their own transitions */
+.reveal, .reveal-left, .reveal-right { transition: opacity .8s var(--ease-out-expo), transform .8s var(--ease-out-expo) !important; }
+.tilt-card { transition: transform .3s ease, box-shadow .3s ease, border-color .2s ease, background-color .2s ease !important; }
+.btn { transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .15s ease, box-shadow .15s ease !important; }
+nav, #theme-panel { transition: transform .35s var(--ease-out-expo), background-color .2s ease, box-shadow .2s ease !important; }
 
 /* ── Navbar blur ── */
 .navbar-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-
-/* ── Card hover 3D tilt ── */
-.tilt-card { transition: transform .3s ease, box-shadow .3s ease; transform-style: preserve-3d; }
 
 /* ── Stats counter ── */
 .counter { display: inline-block; font-variant-numeric: tabular-nums; }
@@ -51,9 +101,6 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 .marquee-inner { display: flex; gap: 3rem; animation: marquee 22s linear infinite; width: max-content; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* ── Smooth theme transition ── */
-[data-theme] { transition: background-color .3s, color .3s; }
-
 /* ── Custom scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -61,7 +108,7 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 
 /* ── Glow button ── */
 .btn-glow { position: relative; overflow: hidden; }
-.btn-glow::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.15), transparent); opacity: 0; transition: opacity .3s; }
+.btn-glow::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.15), transparent); opacity: 0; transition: opacity .3s !important; }
 .btn-glow:hover::after { opacity: 1; }
 
 /* ── Hero typing cursor ── */
@@ -79,20 +126,43 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 #mobile-menu a:nth-child(5) { animation-delay: .25s; }
 @keyframes menuIn { to { opacity: 1; transform: translateY(0); } }
 
-/* ── Placeholder text — muted/neutral, not primary ── */
-input::placeholder,
-textarea::placeholder {
-  color: oklch(var(--bc) / 0.3) !important;
-}
+/* ── Placeholder text ── */
+input::placeholder, textarea::placeholder { color: oklch(var(--bc) / 0.3) !important; }
 
-/* ── Services card hover glow ── */
-.card.tilt-card {
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease;
-}
-
-/* Service cards — hover background color shift */
+/* ── Services card hover background ── */
 .service-card-primary:hover   { background-color: oklch(var(--p) / 0.08) !important; }
 .service-card-secondary:hover { background-color: oklch(var(--s) / 0.08) !important; }
 .service-card-accent:hover    { background-color: oklch(var(--a) / 0.08) !important; }
 .service-card-warning:hover   { background-color: oklch(var(--wa) / 0.08) !important; }
 .service-card-success:hover   { background-color: oklch(var(--su) / 0.08) !important; }
+
+/* ── Mobile responsiveness fixes ── */
+@media (max-width: 767px) {
+  /* Hero text sizing */
+  .hero-title { font-size: clamp(2rem, 8vw, 3rem) !important; }
+
+  /* Prevent horizontal scroll */
+  section { overflow-x: hidden; }
+
+  /* Footer grid stack */
+  footer .grid { gap: 2rem; }
+
+  /* About stats — 2 col on mobile */
+  .about-stats { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Services — single col on very small screens */
+  .services-grid { grid-template-columns: 1fr !important; }
+
+  /* Contact grid */
+  .contact-grid { grid-template-columns: 1fr !important; }
+
+  /* Padding adjustments */
+  .py-32 { padding-top: 5rem; padding-bottom: 5rem; }
+  .gap-20 { gap: 3rem; }
+  .mb-20 { margin-bottom: 3rem; }
+}
+
+/* ── Safe area for notched phones ── */
+@supports (padding: env(safe-area-inset-left)) {
+  nav > div { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+}
