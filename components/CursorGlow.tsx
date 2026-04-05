@@ -1,13 +1,20 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTheme } from '@/hooks/useTheme'
 
 export default function CursorGlow() {
   const ref = useRef<HTMLDivElement>(null)
   const { currentColors } = useTheme()
+  const [isTouchDevice, setIsTouchDevice] = useState(true)
 
   useEffect(() => {
+    // Only enable on non-touch devices
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  }, [])
+
+  useEffect(() => {
+    if (isTouchDevice) return
     const el = ref.current
     if (!el) return
 
@@ -25,7 +32,9 @@ export default function CursorGlow() {
       document.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseleave', onLeave)
     }
-  }, [currentColors])
+  }, [currentColors, isTouchDevice])
+
+  if (isTouchDevice) return null
 
   return <div id="cursor-glow" ref={ref} />
 }

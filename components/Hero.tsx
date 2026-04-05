@@ -119,7 +119,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-start lg:items-center overflow-hidden">
       <canvas ref={canvasRef} id="hero-canvas" />
       {/* Overlay gradient */}
       <div
@@ -127,7 +127,7 @@ export default function Hero() {
         style={{ background: 'linear-gradient(135deg,oklch(var(--b1)/0.9) 0%,oklch(var(--b1)/0.6) 100%)' }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-24 pb-12 sm:pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-20 pb-10 sm:pt-24 sm:pb-14 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: text */}
           <div>

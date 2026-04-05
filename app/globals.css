@@ -28,7 +28,7 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 @keyframes floatAnim { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
 
 /* ── Cursor glow ── */
-#cursor-glow { position: fixed; width: 320px; height: 320px; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: opacity .3s; mix-blend-mode: screen; opacity: 0; }
+#cursor-glow { position: fixed; width: 320px; height: 320px; border-radius: 50%; pointer-events: none; z-index: 1500; transform: translate(-50%,-50%); transition: opacity .3s; mix-blend-mode: screen; opacity: 0; }
 
 /* ────────────────────────────────────────────
    NAVBAR RESPONSIVE
@@ -46,15 +46,13 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 .navbar-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 
 /* ────────────────────────────────────────────
-   MOBILE MENU
-   Must use CSS classes, NOT inline styles,
-   so .open can override display:none
+   MOBILE MENU — z-index harus lebih tinggi dari theme panel (1000)
 ──────────────────────────────────────────── */
 .mobile-menu-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 500;
+  z-index: 2000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -64,9 +62,13 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
   font-weight: 700;
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  background: rgba(0,0,0,.88);
+  background: rgba(0,0,0,.92);
+  pointer-events: none;
 }
-.mobile-menu-overlay.open { display: flex; }
+.mobile-menu-overlay.open {
+  display: flex;
+  pointer-events: auto;
+}
 .mobile-menu-overlay .menu-item {
   opacity: 0;
   transform: translateY(30px);
