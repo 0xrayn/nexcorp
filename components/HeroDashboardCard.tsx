@@ -1,7 +1,7 @@
 // Dashboard card - diperkecil (scale-75) dan dibuat tidak overlap text
 export default function HeroDashboardCard() {
   return (
-    <div className="relative w-full max-w-xs" style={{ pointerEvents: 'none', transform: 'scale(0.8)', transformOrigin: 'center top' }}>
+    <div className="relative w-full max-w-sm" style={{ pointerEvents: 'none', transform: 'scale(1.0)', transformOrigin: 'center top' }}>
       {/* Floating icon top-left */}
       <div className="float absolute -top-6 -left-6 w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur border border-primary/30 flex items-center justify-center z-10">
         <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

@@ -30,13 +30,12 @@ export default function Navbar() {
           <a href="#services"   className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary">Layanan</a>
           <a href="#about"      className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary">Tentang</a>
           <a href="#portfolio"  className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary">Portfolio</a>
-          <a href="#team"       className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary">Tim</a>
           <a href="#contact"    className="btn btn-primary btn-sm rounded-full px-6 btn-glow">Hubungi Kami</a>
         </div>
 
-        {/* Hamburger — only on mobile/tablet (md:hidden) */}
+        {/* Hamburger — ONLY on mobile/tablet, hidden on md and above */}
         <button
-          className="md:hidden btn btn-ghost btn-sm"
+          className="flex md:hidden btn btn-ghost btn-sm"
           onClick={openMenu}
           aria-label="Buka menu"
         >

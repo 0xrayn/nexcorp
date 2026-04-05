@@ -134,7 +134,7 @@ export default function Hero() {
             <div className="badge badge-primary badge-outline mb-6 px-4 py-2 text-xs font-display font-semibold tracking-widest uppercase reveal">
               🚀 Inovasi Digital Terdepan
             </div>
-            <h1 className="text-5xl md:text-7xl font-display font-black leading-[1.05] mb-6 reveal" style={{ animationDelay: '.1s' }}>
+            <h1 className="text-4xl md:text-5xl font-display font-black leading-[1.05] mb-6 reveal" style={{ animationDelay: '.1s' }}>
               Kami<br />
               <TypingText />
             </h1>

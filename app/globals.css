@@ -87,5 +87,12 @@ textarea::placeholder {
 
 /* ── Services card hover glow ── */
 .card.tilt-card {
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease;
 }
+
+/* Service cards — hover background color shift */
+.service-card-primary:hover   { background-color: oklch(var(--p) / 0.08) !important; }
+.service-card-secondary:hover { background-color: oklch(var(--s) / 0.08) !important; }
+.service-card-accent:hover    { background-color: oklch(var(--a) / 0.08) !important; }
+.service-card-warning:hover   { background-color: oklch(var(--wa) / 0.08) !important; }
+.service-card-success:hover   { background-color: oklch(var(--su) / 0.08) !important; }

@@ -96,7 +96,6 @@ export default function Footer() {
               <ul className="space-y-2 text-sm opacity-70">
                 {[
                   { label: 'Tentang Kami', href: '#about' },
-                  { label: 'Tim Kami',     href: '#team' },
                   { label: 'Portfolio',    href: '#portfolio' },
                   { label: 'Karir',        href: '#contact' },
                   { label: 'Blog',         href: '#contact' },
@@ -113,6 +112,12 @@ export default function Footer() {
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-base-content/10">
             <p className="text-sm opacity-40">© 2026 NexCorp. Hak cipta dilindungi.</p>
+            <p className="text-sm opacity-40">
+              Dibuat oleh{' '}
+              <a href="https://rayn.web.id" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 hover:text-primary transition-colors underline underline-offset-2">
+                0xrayn
+              </a>
+            </p>
             <div className="flex gap-6 text-sm opacity-40">
               <a href="#" className="hover:opacity-80">Kebijakan Privasi</a>
               <a href="#" className="hover:opacity-80">Syarat &amp; Ketentuan</a>

@@ -6,6 +6,7 @@ const services = [
     cardBorder: 'hover:border-primary/40',
     iconBg: 'bg-primary/10 group-hover:bg-primary/20',
     glow: 'group-hover:shadow-primary/20',
+    bgHover: 'service-card-primary',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
@@ -19,6 +20,7 @@ const services = [
     cardBorder: 'hover:border-secondary/40',
     iconBg: 'bg-secondary/10 group-hover:bg-secondary/20',
     glow: 'group-hover:shadow-secondary/20',
+    bgHover: 'service-card-secondary',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>
@@ -32,6 +34,7 @@ const services = [
     cardBorder: 'hover:border-accent/40',
     iconBg: 'bg-accent/10 group-hover:bg-accent/20',
     glow: 'group-hover:shadow-accent/20',
+    bgHover: 'service-card-accent',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
@@ -45,6 +48,7 @@ const services = [
     cardBorder: 'hover:border-warning/40',
     iconBg: 'bg-warning/10 group-hover:bg-warning/20',
     glow: 'group-hover:shadow-warning/20',
+    bgHover: 'service-card-warning',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
@@ -58,6 +62,7 @@ const services = [
     cardBorder: 'hover:border-success/40',
     iconBg: 'bg-success/10 group-hover:bg-success/20',
     glow: 'group-hover:shadow-success/20',
+    bgHover: 'service-card-success',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -84,7 +89,7 @@ export default function Services() {
           {services.map((s, i) => (
             <div
               key={s.title}
-              className={"group card bg-base-200 border border-base-content/5 " + s.cardBorder + " transition-all duration-300 tilt-card reveal shadow-lg " + s.glow}
+              className={"group card bg-base-200 border border-base-content/5 " + s.cardBorder + " transition-all duration-300 tilt-card reveal shadow-lg " + s.glow + " " + s.bgHover + " hover:bg-base-300"}
               style={{ animationDelay: `${0.1 + i * 0.05}s` }}
             >
               <div className="card-body p-8">
