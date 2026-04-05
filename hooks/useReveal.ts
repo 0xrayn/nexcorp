@@ -4,22 +4,36 @@ import { useEffect } from 'react'
 
 export function useReveal() {
   useEffect(() => {
-    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+    const revealEls = document.querySelectorAll<HTMLElement>('.reveal, .reveal-left, .reveal-right')
+
+    const show = (el: HTMLElement) => {
+      const delay = el.style.animationDelay || '0s'
+      const ms = parseFloat(delay) * 1000 || 0
+      setTimeout(() => el.classList.add('visible'), ms * 0.4)
+    }
+
     const io = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            const target = e.target as HTMLElement
-            const delay = target.style.animationDelay || '0s'
-            const ms = parseFloat(delay) * 1000 || 0
-            setTimeout(() => target.classList.add('visible'), ms * 0.4)
-            io.unobserve(target)
+            show(e.target as HTMLElement)
+            io.unobserve(e.target)
           }
         })
       },
-      { threshold: 0.12 }
+      { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
     )
-    revealEls.forEach(el => io.observe(el))
+
+    revealEls.forEach(el => {
+      const rect = el.getBoundingClientRect()
+      // Already visible in viewport on mount — show immediately
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        show(el)
+      } else {
+        io.observe(el)
+      }
+    })
+
     return () => io.disconnect()
   }, [])
 }

@@ -127,50 +127,50 @@ export default function Hero() {
         style={{ background: 'linear-gradient(135deg,oklch(var(--b1)/0.9) 0%,oklch(var(--b1)/0.6) 100%)' }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-20 sm:pt-24 pb-12 sm:pb-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: text */}
           <div>
-            <div className="badge badge-primary badge-outline mb-6 px-4 py-2 text-xs font-display font-semibold tracking-widest uppercase reveal">
-              🚀 Inovasi Digital Terdepan
+            <div className="inline-flex badge badge-primary badge-outline mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-display font-semibold tracking-wider sm:tracking-widest uppercase max-w-full overflow-hidden">
+              <span className="truncate">🚀 Inovasi Digital Terdepan</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-display font-black leading-[1.05] mb-6 reveal" style={{ animationDelay: '.1s' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-[1.08] mb-5 sm:mb-6" style={{ animationDelay: '.1s' }}>
               Kami<br />
               <TypingText />
             </h1>
-            <p className="text-lg md:text-xl opacity-70 leading-relaxed mb-10 max-w-lg reveal" style={{ animationDelay: '.2s' }}>
+            <p className="text-sm sm:text-base md:text-lg opacity-70 leading-relaxed mb-8 sm:mb-10 max-w-lg" style={{ animationDelay: '.2s' }}>
               NexCorp menghadirkan solusi teknologi mutakhir — dari pengembangan software enterprise hingga transformasi digital yang mengakselerasi pertumbuhan bisnis Anda.
             </p>
-            <div className="flex flex-wrap gap-4 reveal" style={{ animationDelay: '.3s' }}>
-              <a href="#services" className="btn btn-primary btn-lg rounded-full px-8 btn-glow shadow-lg shadow-primary/30">
+            <div className="flex flex-wrap gap-3 sm:gap-4" style={{ animationDelay: '.3s' }}>
+              <a href="#services" className="btn btn-primary btn-sm sm:btn-lg rounded-full px-5 sm:px-8 btn-glow shadow-lg shadow-primary/30">
                 Jelajahi Layanan
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </a>
-              <a href="#portfolio" className="btn btn-outline btn-lg rounded-full px-8">Lihat Portfolio</a>
+              <a href="#portfolio" className="btn btn-outline btn-sm sm:btn-lg rounded-full px-5 sm:px-8">Lihat Portfolio</a>
             </div>
             {/* Stats mini */}
-            <div className="flex gap-10 mt-14 reveal" style={{ animationDelay: '.4s' }}>
+            <div className="flex gap-5 sm:gap-10 mt-10 sm:mt-14" style={{ animationDelay: '.4s' }}>
               <div>
-                <p className="text-4xl font-display font-black text-primary">
+                <p className="text-2xl sm:text-4xl font-display font-black text-primary">
                   <span className="counter" data-target="250">0</span>+
                 </p>
-                <p className="text-sm opacity-60 mt-1">Proyek Selesai</p>
+                <p className="text-xs sm:text-sm opacity-60 mt-1">Proyek Selesai</p>
               </div>
               <div className="w-px bg-base-content/10" />
               <div>
-                <p className="text-4xl font-display font-black text-primary">
+                <p className="text-2xl sm:text-4xl font-display font-black text-primary">
                   <span className="counter" data-target="98">0</span>%
                 </p>
-                <p className="text-sm opacity-60 mt-1">Klien Puas</p>
+                <p className="text-xs sm:text-sm opacity-60 mt-1">Klien Puas</p>
               </div>
               <div className="w-px bg-base-content/10" />
               <div>
-                <p className="text-4xl font-display font-black text-primary">
+                <p className="text-2xl sm:text-4xl font-display font-black text-primary">
                   <span className="counter" data-target="12">0</span>+
                 </p>
-                <p className="text-sm opacity-60 mt-1">Tahun Pengalaman</p>
+                <p className="text-xs sm:text-sm opacity-60 mt-1">Tahun Pengalaman</p>
               </div>
             </div>
           </div>

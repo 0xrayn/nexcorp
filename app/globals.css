@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* All fonts loaded via <link> in layout.tsx */
 :root {
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -32,66 +31,91 @@ h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 #cursor-glow { position: fixed; width: 320px; height: 320px; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: opacity .3s; mix-blend-mode: screen; opacity: 0; }
 
 /* ────────────────────────────────────────────
-   NAVBAR — hamburger & desktop links
-   Tailwind's responsive classes can get
-   overridden by DaisyUI CDN. Use explicit CSS.
+   NAVBAR RESPONSIVE
+   Explicit CSS to override DaisyUI CDN resets
 ──────────────────────────────────────────── */
-.navbar-desktop-links { display: none; }
-.navbar-hamburger { display: flex; }
+.navbar-desktop-links { display: none !important; }
+.navbar-hamburger     { display: flex !important; }
 
 @media (min-width: 768px) {
-  .navbar-desktop-links { display: flex; }
-  .navbar-hamburger { display: none !important; }
+  .navbar-desktop-links { display: flex !important; }
+  .navbar-hamburger     { display: none !important; }
 }
 
+/* ── Navbar blur ── */
+.navbar-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
 /* ────────────────────────────────────────────
-   THEME SWITCHER PANEL — smooth & responsive
+   MOBILE MENU
+   Must use CSS classes, NOT inline styles,
+   so .open can override display:none
 ──────────────────────────────────────────── */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: 700;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  background: rgba(0,0,0,.88);
+}
+.mobile-menu-overlay.open { display: flex; }
+.mobile-menu-overlay .menu-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: menuIn .4s var(--ease-out-expo) forwards;
+}
+@keyframes menuIn { to { opacity: 1; transform: translateY(0); } }
+
+/* ────────────────────────────────────────────
+   THEME SWITCHER — smooth, no lag
+   Only transition color properties, NEVER
+   width/height/transform/layout props globally
+   (that's what caused lag before)
+──────────────────────────────────────────── */
+[data-theme] {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
 #theme-panel {
   position: fixed;
   right: 0;
   top: 50%;
   z-index: 1000;
-  transform: translateY(-50%);
+  /* default: closed offset from right */
+  transform: translateY(-50%) translateX(calc(100% - 36px));
   transition: transform .35s var(--ease-out-expo);
 }
-.theme-panel-closed { transform: translateY(-50%) translateX(calc(100% - 36px)) !important; }
-.theme-panel-open   { transform: translateY(-50%) translateX(0) !important; }
+#theme-panel.theme-panel-open {
+  transform: translateY(-50%) translateX(0);
+}
 
-/* Smaller on mobile so it doesn't cover content */
+@media (min-width: 768px) {
+  #theme-panel { transform: translateY(-50%) translateX(calc(100% - 44px)); }
+}
+
 .theme-toggle-btn {
   width: 36px;
   min-height: 100px;
   flex-shrink: 0;
-  transition: background-color .2s;
 }
-
 @media (min-width: 768px) {
   .theme-toggle-btn { width: 44px; min-height: 120px; }
-  .theme-panel-closed { transform: translateY(-50%) translateX(calc(100% - 44px)) !important; }
 }
 
 .theme-dot { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: border-color .15s, transform .15s; flex-shrink: 0; display: block; }
 .theme-dot:hover, .theme-dot.active { border-color: white; transform: scale(1.2); }
+@media (min-width: 768px) { .theme-dot { width: 26px; height: 26px; } }
 
-@media (min-width: 768px) {
-  .theme-dot { width: 26px; height: 26px; }
-}
-
-/* ── SMOOTH theme transition — only color/bg, no layout thrash ── */
-*, *::before, *::after {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
-}
-/* Re-override for elements that need their own transitions */
-.reveal, .reveal-left, .reveal-right { transition: opacity .8s var(--ease-out-expo), transform .8s var(--ease-out-expo) !important; }
-.tilt-card { transition: transform .3s ease, box-shadow .3s ease, border-color .2s ease, background-color .2s ease !important; }
-.btn { transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .15s ease, box-shadow .15s ease !important; }
-nav, #theme-panel { transition: transform .35s var(--ease-out-expo), background-color .2s ease, box-shadow .2s ease !important; }
-
-/* ── Navbar blur ── */
-.navbar-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+/* ── Card transitions ── */
+.tilt-card { transition: transform .3s ease, box-shadow .3s ease, border-color .25s ease, background-color .25s ease; }
 
 /* ── Stats counter ── */
 .counter { display: inline-block; font-variant-numeric: tabular-nums; }
@@ -108,23 +132,12 @@ nav, #theme-panel { transition: transform .35s var(--ease-out-expo), background-
 
 /* ── Glow button ── */
 .btn-glow { position: relative; overflow: hidden; }
-.btn-glow::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.15), transparent); opacity: 0; transition: opacity .3s !important; }
+.btn-glow::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.15), transparent); opacity: 0; transition: opacity .3s; }
 .btn-glow:hover::after { opacity: 1; }
 
 /* ── Hero typing cursor ── */
 .typing-cursor { display: inline-block; width: 3px; height: 1.1em; background: oklch(var(--p)); margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: middle; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-
-/* ── Mobile menu ── */
-#mobile-menu { display: none; position: fixed; inset: 0; z-index: 500; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 700; backdrop-filter: blur(30px); background: rgba(0,0,0,.85); }
-#mobile-menu.open { display: flex; }
-#mobile-menu a { opacity: 0; transform: translateY(30px); animation: menuIn .4s var(--ease-out-expo) forwards; }
-#mobile-menu a:nth-child(1) { animation-delay: .05s; }
-#mobile-menu a:nth-child(2) { animation-delay: .10s; }
-#mobile-menu a:nth-child(3) { animation-delay: .15s; }
-#mobile-menu a:nth-child(4) { animation-delay: .20s; }
-#mobile-menu a:nth-child(5) { animation-delay: .25s; }
-@keyframes menuIn { to { opacity: 1; transform: translateY(0); } }
 
 /* ── Placeholder text ── */
 input::placeholder, textarea::placeholder { color: oklch(var(--bc) / 0.3) !important; }
@@ -136,33 +149,31 @@ input::placeholder, textarea::placeholder { color: oklch(var(--bc) / 0.3) !impor
 .service-card-warning:hover   { background-color: oklch(var(--wa) / 0.08) !important; }
 .service-card-success:hover   { background-color: oklch(var(--su) / 0.08) !important; }
 
-/* ── Mobile responsiveness fixes ── */
-@media (max-width: 767px) {
-  /* Hero text sizing */
-  .hero-title { font-size: clamp(2rem, 8vw, 3rem) !important; }
+/* ────────────────────────────────────────────
+   MOBILE RESPONSIVE FIXES
+──────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Hero section — prevent text overflow */
+  #hero .badge { font-size: 10px !important; padding: 4px 10px !important; letter-spacing: 0.1em !important; max-width: 100%; white-space: normal; text-align: center; }
+  #hero h1 { font-size: clamp(1.75rem, 7vw, 2.5rem) !important; line-height: 1.1 !important; }
+  #hero p.text-lg { font-size: 0.9rem !important; }
+  #hero .btn-lg { padding-left: 1.25rem !important; padding-right: 1.25rem !important; font-size: 0.875rem !important; }
+  #hero .flex.gap-10 { gap: 1.25rem !important; }
+  #hero .text-4xl.font-display { font-size: 1.75rem !important; }
+  #hero .pt-24 { padding-top: 5rem !important; }
 
-  /* Prevent horizontal scroll */
-  section { overflow-x: hidden; }
-
-  /* Footer grid stack */
-  footer .grid { gap: 2rem; }
-
-  /* About stats — 2 col on mobile */
-  .about-stats { grid-template-columns: repeat(2, 1fr) !important; }
-
-  /* Services — single col on very small screens */
-  .services-grid { grid-template-columns: 1fr !important; }
-
-  /* Contact grid */
-  .contact-grid { grid-template-columns: 1fr !important; }
-
-  /* Padding adjustments */
-  .py-32 { padding-top: 5rem; padding-bottom: 5rem; }
-  .gap-20 { gap: 3rem; }
-  .mb-20 { margin-bottom: 3rem; }
+  /* General section padding */
+  .py-32 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+  .gap-20 { gap: 2.5rem !important; }
+  .mb-20 { margin-bottom: 2.5rem !important; }
+  .px-6 { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .text-4xl.md\:text-6xl, .text-4xl.md\:text-5xl { font-size: clamp(1.75rem, 7vw, 2.5rem) !important; }
 }
 
-/* ── Safe area for notched phones ── */
+/* Safe area for notched phones */
 @supports (padding: env(safe-area-inset-left)) {
-  nav > div { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+  nav > div {
+    padding-left: max(1rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right)) !important;
+  }
 }

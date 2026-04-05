@@ -10,13 +10,13 @@ export default function ThemePanel() {
   return (
     <div
       id="theme-panel"
-      className={open ? 'theme-panel-open' : 'theme-panel-closed'}
+      className={open ? 'theme-panel-open' : ''}
     >
       <div className="flex items-center bg-base-200 shadow-2xl rounded-l-2xl overflow-hidden">
         {/* Toggle tab */}
         <button
           onClick={() => setOpen(v => !v)}
-          className="theme-toggle-btn bg-primary flex items-center justify-center rounded-l-2xl hover:bg-primary-focus"
+          className="theme-toggle-btn bg-primary flex items-center justify-center rounded-l-2xl hover:bg-primary-focus transition-colors"
           title="Ganti Tema"
           aria-label="Ganti Tema"
         >
@@ -25,7 +25,7 @@ export default function ThemePanel() {
             <path d="M12 2a7 7 0 0 1 0 14"/>
           </svg>
         </button>
-        {/* Dots */}
+        {/* Color dots */}
         <div className="flex flex-col gap-2 p-2.5">
           <p className="text-[9px] font-display font-bold text-base-content/50 uppercase tracking-widest">Tema</p>
           <div className="flex flex-col gap-1.5">

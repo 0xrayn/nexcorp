@@ -110,8 +110,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-base-content/10 space-y-3">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="pt-8 border-t border-base-content/10">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 mb-3">
               <p className="text-sm opacity-40">© 2026 NexCorp. Hak cipta dilindungi.</p>
               <div className="flex gap-4 sm:gap-6 text-sm opacity-40">
                 <a href="#" className="hover:opacity-80">Kebijakan Privasi</a>
@@ -119,21 +119,19 @@ export default function Footer() {
                 <a href="#" className="hover:opacity-80">Sitemap</a>
               </div>
             </div>
-            {/* Credit line */}
-            <div className="flex justify-center">
-              <a
-                href="https://rayn.web.id"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs opacity-30 hover:opacity-70 transition-opacity hover:text-primary group"
-              >
-                <span>Dibuat oleh 0xrayn</span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span className="underline underline-offset-2">rayn.web.id</span>
-              </a>
-            </div>
+            {/* Credit line — left aligned, tight below copyright */}
+            <a
+              href="https://rayn.web.id"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs opacity-30 hover:opacity-60 transition-opacity hover:text-primary group"
+            >
+              <span>Dibuat oleh 0xrayn</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 group-hover:translate-x-0.5 transition-transform flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <span className="underline underline-offset-2">rayn.web.id</span>
+            </a>
           </div>
         </div>
       </footer>
