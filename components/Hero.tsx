@@ -134,12 +134,12 @@ export default function Hero() {
             <div className="inline-flex badge badge-primary badge-outline mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-display font-semibold tracking-wider sm:tracking-widest uppercase max-w-full overflow-hidden">
               <span className="truncate">🚀 Inovasi Digital Terdepan</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-[1.08] mb-5 sm:mb-6" style={{ animationDelay: '.1s' }}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-black leading-[1.08] mb-5 sm:mb-6" style={{ animationDelay: '.1s' }}>
               Kami<br />
               <TypingText />
             </h1>
             <p className="text-sm sm:text-base md:text-lg opacity-70 leading-relaxed mb-8 sm:mb-10 max-w-lg" style={{ animationDelay: '.2s' }}>
-              NexCorp menghadirkan solusi teknologi mutakhir — dari pengembangan software enterprise hingga transformasi digital yang mengakselerasi pertumbuhan bisnis Anda.
+              NexCorp menghadirkan solusi teknologi mutakhir dari pengembangan software enterprise hingga transformasi digital yang mengakselerasi pertumbuhan bisnis Anda.
             </p>
             <div className="flex flex-wrap gap-3 sm:gap-4" style={{ animationDelay: '.3s' }}>
               <a href="#services" className="btn btn-primary btn-sm sm:btn-lg rounded-full px-5 sm:px-8 btn-glow shadow-lg shadow-primary/30">
