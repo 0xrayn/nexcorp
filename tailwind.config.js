@@ -6,7 +6,7 @@ module.exports = {
     './hooks/**/*.{js,ts,jsx,tsx}',
   ],
   theme: { extend: {} },
-  // DaisyUI loaded via CDN in layout.tsx — only use Tailwind utilities here
+  // DaisyUI loaded via CDN in layout.tsx  only use Tailwind utilities here
   plugins: [],
   // Disable preflight since DaisyUI CDN handles base styles
   corePlugins: {

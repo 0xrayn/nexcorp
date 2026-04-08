@@ -15,7 +15,7 @@ export default function HeroDashboardCard() {
         </svg>
       </div>
 
-      {/* Main card — padding lebih kecil */}
+      {/* Main card  padding lebih kecil */}
       <div className="bg-base-200/80 backdrop-blur-xl border border-base-content/10 rounded-2xl p-5 shadow-2xl">
         {/* Window chrome dots */}
         <div className="flex items-center gap-2 mb-4">

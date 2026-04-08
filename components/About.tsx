@@ -13,7 +13,7 @@ export default function About() {
               Bukan Sekadar<br />Vendor Teknologi
             </h2>
             <p className="opacity-70 leading-relaxed mb-6">
-              Sejak 2012, NexCorp telah menjadi mitra transformasi digital bagi ratusan perusahaan dari berbagai industri. Kami bukan hanya menyediakan teknologi — kami membangun fondasi digital yang menopang pertumbuhan bisnis jangka panjang.
+              Sejak 2012, NexCorp telah menjadi mitra transformasi digital bagi ratusan perusahaan dari berbagai industri. Kami bukan hanya menyediakan teknologi  kami membangun fondasi digital yang menopang pertumbuhan bisnis jangka panjang.
             </p>
             <p className="opacity-70 leading-relaxed mb-10">
               Dengan tim lebih dari 80 profesional berpengalaman, kami mengkombinasikan keahlian teknis mendalam dengan pemahaman bisnis yang tajam untuk menghadirkan solusi yang benar-benar berdampak.

@@ -175,7 +175,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Dashboard card — dekoratif saja, tidak overlap text */}
+          {/* Right: Dashboard card  dekoratif saja, tidak overlap text */}
           <div className="hidden lg:flex justify-center items-center reveal-right">
             <HeroDashboardCard />
           </div>

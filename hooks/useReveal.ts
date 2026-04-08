@@ -26,7 +26,7 @@ export function useReveal() {
 
     revealEls.forEach(el => {
       const rect = el.getBoundingClientRect()
-      // Already visible in viewport on mount — show immediately
+      // Already visible in viewport on mount  show immediately
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         show(el)
       } else {

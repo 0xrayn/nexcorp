@@ -40,7 +40,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = useCallback((name: string) => {
     // Update React state
     setThemeState(name)
-    // Update DOM immediately — this is what DaisyUI reads
+    // Update DOM immediately  this is what DaisyUI reads
     document.documentElement.setAttribute('data-theme', name)
     // Persist
     try { localStorage.setItem('nexcorp-theme', name) } catch {}

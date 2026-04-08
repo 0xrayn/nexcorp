@@ -1,7 +1,7 @@
 const services = [
   {
     title: 'Web Development',
-    desc: 'Website dan aplikasi web berkinerja tinggi dengan teknologi terkini — React, Next.js, dan arsitektur modern.',
+    desc: 'Website dan aplikasi web berkinerja tinggi dengan teknologi terkini  React, Next.js, dan arsitektur modern.',
     tags: ['Next.js', 'React', 'TypeScript'],
     cardBorder: 'hover:border-primary/40',
     iconBg: 'bg-primary/10 group-hover:bg-primary/20',
@@ -43,7 +43,7 @@ const services = [
   },
   {
     title: 'AI & Machine Learning',
-    desc: 'Integrasi kecerdasan buatan ke dalam produk Anda — dari chatbot cerdas hingga analitik prediktif berbasis data.',
+    desc: 'Integrasi kecerdasan buatan ke dalam produk Anda  dari chatbot cerdas hingga analitik prediktif berbasis data.',
     tags: ['Python', 'TensorFlow', 'LLM'],
     cardBorder: 'hover:border-warning/40',
     iconBg: 'bg-warning/10 group-hover:bg-warning/20',
@@ -107,7 +107,7 @@ export default function Services() {
             </div>
           ))}
 
-          {/* IT Consulting — gradient highlight card */}
+          {/* IT Consulting  gradient highlight card */}
           <div className="group card bg-gradient-to-br from-primary to-secondary border-0 tilt-card reveal shadow-xl shadow-primary/20" style={{ animationDelay: '0.35s' }}>
             <div className="card-body p-8">
               <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6">

@@ -119,7 +119,7 @@ export default function Footer() {
                 <a href="#" className="hover:opacity-80">Sitemap</a>
               </div>
             </div>
-            {/* Credit line — left aligned, tight below copyright */}
+            {/* Credit line  left aligned, tight below copyright */}
             <a
               href="https://rayn.web.id"
               target="_blank"

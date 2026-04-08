@@ -3,7 +3,7 @@ import { ThemeProvider } from '@/hooks/useTheme'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'NexCorp — Shaping Digital Futures',
+  title: 'NexCorp  Shaping Digital Futures',
   description: 'Mitra transformasi digital terpercaya untuk bisnis modern.',
 }
 
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id" data-theme="dark" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-        {/* DaisyUI via CDN — same as original, ensures all theme CSS vars work */}
+        {/* DaisyUI via CDN  same as original, ensures all theme CSS vars work */}
         <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

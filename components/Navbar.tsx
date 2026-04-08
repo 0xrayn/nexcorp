@@ -25,7 +25,7 @@ export default function Navbar() {
           Nex<span className="text-primary">Corp</span>
         </a>
 
-        {/* Desktop nav — visible ONLY md and above */}
+        {/* Desktop nav  visible ONLY md and above */}
         <div className="navbar-desktop-links items-center gap-6 lg:gap-8">
           <a href="#services"  className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Layanan</a>
           <a href="#about"     className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Tentang</a>
@@ -33,7 +33,7 @@ export default function Navbar() {
           <a href="#contact"   className="btn btn-primary btn-sm rounded-full px-5 btn-glow whitespace-nowrap">Hubungi Kami</a>
         </div>
 
-        {/* Hamburger — ONLY mobile/tablet */}
+        {/* Hamburger  ONLY mobile/tablet */}
         <button
           className="navbar-hamburger btn btn-ghost btn-sm p-1"
           onClick={openMenu}

@@ -1,4 +1,4 @@
-# NexCorp — Next.js
+# NexCorp  Next.js
 
 Converted from single HTML file to a proper Next.js 14 project with App Router.
 
@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000)
 nexcorp/
 ├── app/
 │   ├── layout.tsx          # Root layout, ThemeProvider, metadata
-│   ├── page.tsx            # Home page — composes all sections
+│   ├── page.tsx            # Home page  composes all sections
 │   └── globals.css         # All global styles + Tailwind directives
 │
 ├── components/
@@ -40,7 +40,7 @@ nexcorp/
 │   └── Animations.tsx       # Client: reveal scroll, counters, tilt
 │
 └── hooks/
-    ├── useTheme.tsx         # Theme context — fast switching via rAF
+    ├── useTheme.tsx         # Theme context  fast switching via rAF
     └── useReveal.ts         # IntersectionObserver reveal + counter hooks
 ```
 
@@ -53,9 +53,9 @@ nexcorp/
 
 ### 2. Dashboard card overlapping text
 - Old: Absolute-positioned floating elements with high z-index could overlap left column
-- Fix: Card lives in separate right column of `lg:grid-cols-2` — physically cannot overlap left text
+- Fix: Card lives in separate right column of `lg:grid-cols-2`  physically cannot overlap left text
 - Added `pointer-events: none` to the entire card container
-- Card is `hidden lg:flex` — completely removed on mobile/tablet where overlap was worst
+- Card is `hidden lg:flex`  completely removed on mobile/tablet where overlap was worst
 
 ### 3. Fragment structure
 - Every section is its own component file
