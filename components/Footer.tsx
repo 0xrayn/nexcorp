@@ -114,9 +114,9 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 mb-3">
               <p className="text-sm opacity-40">© 2026 NexCorp. Hak cipta dilindungi.</p>
               <div className="flex gap-4 sm:gap-6 text-sm opacity-40">
-                <a href="#" className="hover:opacity-80">Kebijakan Privasi</a>
-                <a href="#" className="hover:opacity-80">Syarat &amp; Ketentuan</a>
-                <a href="#" className="hover:opacity-80">Sitemap</a>
+                <a href="/kebijakan-privasi" className="hover:opacity-80 hover:text-primary transition-colors">Kebijakan Privasi</a>
+                <a href="/syarat-ketentuan" className="hover:opacity-80 hover:text-primary transition-colors">Syarat &amp; Ketentuan</a>
+                <a href="/sitemap-page" className="hover:opacity-80 hover:text-primary transition-colors">Sitemap</a>
               </div>
             </div>
             {/* Credit line  left aligned, tight below copyright */}

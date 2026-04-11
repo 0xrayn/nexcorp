@@ -11,8 +11,7 @@ html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 h1,h2,h3,h4,.font-display { font-family: 'Syne', sans-serif; }
 
-/* ── Canvas Three.js ── */
-#hero-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+/* ── Canvas Three.js: handled via inline styles in Hero.tsx ── */
 
 /* ── Reveal animations ── */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s var(--ease-out-expo), transform .8s var(--ease-out-expo); }
