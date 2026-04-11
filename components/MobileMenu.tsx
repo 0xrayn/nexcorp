@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function MobileMenu() {
   const overlayRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     const el = overlayRef.current
@@ -24,7 +27,6 @@ export default function MobileMenu() {
       setTimeout(() => { el.style.display = 'none' }, 250)
     }
 
-    // Expose close for link clicks
     el.dataset.closeHandler = 'true'
     ;(el as any)._close = close
 
@@ -41,12 +43,14 @@ export default function MobileMenu() {
     ;(el as any)._close?.()
   }
 
+  const href = (hash: string) => isHome ? hash : `/${hash}`
+
   const links = [
-    { href: '#hero',      label: 'Beranda' },
-    { href: '#services',  label: 'Layanan' },
-    { href: '#about',     label: 'Tentang' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#contact',   label: 'Kontak' },
+    { hash: '#hero',      label: 'Beranda',  homeOnly: true },
+    { hash: '#services',  label: 'Layanan' },
+    { hash: '#about',     label: 'Tentang' },
+    { hash: '#portfolio', label: 'Portfolio' },
+    { hash: '#contact',   label: 'Kontak' },
   ]
 
   return (
@@ -83,8 +87,8 @@ export default function MobileMenu() {
 
       {links.map((item) => (
         <a
-          key={item.href}
-          href={item.href}
+          key={item.hash}
+          href={href(item.hash)}
           onClick={close}
           style={{
             color: 'white',

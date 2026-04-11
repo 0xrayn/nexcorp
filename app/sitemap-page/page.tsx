@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
 import Footer from '@/components/Footer'
+import ThemePanel from '@/components/ThemePanel'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -63,6 +64,7 @@ export default function SitemapPage() {
     <>
       <MobileMenu />
       <Navbar />
+      <ThemePanel />
       <main className="min-h-screen bg-base-100">
         <div className="bg-base-200/60 border-b border-base-content/5 pt-28 pb-14">
           <div className="max-w-5xl mx-auto px-6">

@@ -105,12 +105,10 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-start lg:items-center overflow-hidden">
-      {/* Three.js canvas — sits behind everything, full bleed */}
       <canvas
         ref={canvasRef}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', display: 'block' }}
       />
-      {/* Overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 1, background: 'linear-gradient(135deg,oklch(var(--b1)/0.88) 0%,oklch(var(--b1)/0.55) 100%)' }}
@@ -118,17 +116,46 @@ export default function Hero() {
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-10 sm:pt-24 sm:pb-14 lg:py-0" style={{ zIndex: 2 }}>
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left */}
+
+          {/* Left column */}
           <div>
             <div className="inline-flex badge badge-primary badge-outline mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-display font-semibold tracking-wider uppercase max-w-full">
               <span className="truncate">🚀 Inovasi Digital Terdepan</span>
             </div>
+
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-black leading-[1.08] mb-5 sm:mb-6">
               Kami<br /><TypingText />
             </h1>
+
+            {/* Banner image — MOBILE ONLY */}
+            <div className="block lg:hidden mb-8 mt-2">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-base-content/10">
+                <img
+                  src="/images/banner.png"
+                  alt="NexCorp Digital Solutions"
+                  style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+              <div className="flex items-center gap-3 mt-3">
+                <div className="px-3 py-2 rounded-xl bg-base-200/90 border border-primary/30 flex items-center gap-2 shadow">
+                  <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                  <span className="text-xs font-display font-semibold text-success">Live Projects</span>
+                  <span className="text-xs font-display font-black text-primary">24</span>
+                </div>
+                <div className="px-3 py-2 rounded-xl bg-base-200/90 border border-secondary/30 flex items-center gap-2 shadow">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+                  </svg>
+                  <span className="text-xs font-display font-semibold">Revenue</span>
+                  <span className="text-xs font-display font-black text-success">+147%</span>
+                </div>
+              </div>
+            </div>
+
             <p className="text-sm sm:text-base md:text-lg opacity-70 leading-relaxed mb-8 sm:mb-10 max-w-lg">
               NexCorp menghadirkan solusi teknologi mutakhir dari pengembangan software enterprise hingga transformasi digital yang mengakselerasi pertumbuhan bisnis Anda.
             </p>
+
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <a href="#services" className="btn btn-primary btn-sm sm:btn-lg rounded-full px-5 sm:px-8 btn-glow shadow-lg shadow-primary/30">
                 Jelajahi Layanan
@@ -137,7 +164,7 @@ export default function Hero() {
               <a href="#portfolio" className="btn btn-outline btn-sm sm:btn-lg rounded-full px-5 sm:px-8">Lihat Portfolio</a>
             </div>
 
-            {/* Stats — tight, no extra space */}
+            {/* Stats */}
             <div className="flex items-center gap-5 sm:gap-8 mt-10 sm:mt-12">
               <div>
                 <p className="text-2xl sm:text-4xl font-display font-black text-primary leading-none">
@@ -162,8 +189,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: banner image */}
-          <div className="hidden lg:flex justify-center items-center reveal-right">
+          {/* Right column — DESKTOP ONLY */}
+          <div className="hidden lg:flex justify-center items-center">
             <div className="relative w-full max-w-lg">
               <div
                 className="absolute -inset-4 rounded-3xl opacity-25 blur-2xl pointer-events-none"
@@ -195,6 +222,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
 

@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -13,6 +16,8 @@ export default function Navbar() {
 
   const openMenu = () => window.dispatchEvent(new Event('mobile-menu-open'))
 
+  const href = (hash: string) => isHome ? hash : `/${hash}`
+
   return (
     <nav
       id="navbar"
@@ -21,16 +26,16 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        <a href="#hero" className="font-display font-bold text-xl sm:text-2xl tracking-tight flex-shrink-0">
+        <a href="/" className="font-display font-bold text-xl sm:text-2xl tracking-tight flex-shrink-0">
           Nex<span className="text-primary">Corp</span>
         </a>
 
         {/* Desktop nav  visible ONLY md and above */}
         <div className="navbar-desktop-links items-center gap-6 lg:gap-8">
-          <a href="#services"  className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Layanan</a>
-          <a href="#about"     className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Tentang</a>
-          <a href="#portfolio" className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Portfolio</a>
-          <a href="#contact"   className="btn btn-primary btn-sm rounded-full px-5 btn-glow whitespace-nowrap">Hubungi Kami</a>
+          <a href={href('#services')}  className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Layanan</a>
+          <a href={href('#about')}     className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Tentang</a>
+          <a href={href('#portfolio')} className="text-sm font-medium opacity-70 hover:opacity-100 transition-opacity hover:text-primary whitespace-nowrap">Portfolio</a>
+          <a href={href('#contact')}   className="btn btn-primary btn-sm rounded-full px-5 btn-glow whitespace-nowrap">Hubungi Kami</a>
         </div>
 
         {/* Hamburger  ONLY mobile/tablet */}
