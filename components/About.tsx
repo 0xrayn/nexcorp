@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" className="py-32 bg-base-200/40 relative overflow-hidden">
+    <section id="about" className="py-16 bg-base-200/40 relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)', backgroundSize: '48px 48px' }}

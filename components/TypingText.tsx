@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const words = ['Membangun', 'Berinovasi', 'Mentransformasi', 'Berkolaborasi']
+const words = ['Membangun', 'Berinovasi', 'Berkolaborasi']
 
 export default function TypingText() {
   const [displayed, setDisplayed] = useState('')

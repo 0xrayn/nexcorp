@@ -40,7 +40,7 @@ function MiniAvatar({ skin, hair, shirt }: { skin: string; hair: string; shirt: 
 
 export default function Testimonials() {
   return (
-    <section className="py-32">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <p className="text-primary font-display font-bold text-sm tracking-widest uppercase mb-3 reveal">Testimoni</p>
