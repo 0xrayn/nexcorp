@@ -51,7 +51,7 @@ export default function TermsPage() {
       <Navbar />
       <ThemePanel />
       <main className="min-h-screen bg-base-100">
-        <div className="bg-base-200/60 border-b border-base-content/5 pt-28 pb-14">
+        <div className="bg-base-200/60 border-b border-base-content/5 pt-28 pb-4">
           <div className="max-w-4xl mx-auto px-6">
             <p className="text-primary font-display font-bold text-xs tracking-widest uppercase mb-3">Legal</p>
             <h1 className="text-4xl md:text-5xl font-display font-black mb-4">Syarat &amp; Ketentuan</h1>
