@@ -1,4 +1,4 @@
-# NexCorp — Digital Agency Landing Page
+# NexCorp ~ Digital Agency Landing Page
 
 A modern digital agency landing page built with **Next.js 14**, **Tailwind CSS v3**, and **DaisyUI v4**. Features a Three.js animated hero, 10 switchable themes, smooth scroll animations, and a fully responsive layout.
 
@@ -32,16 +32,16 @@ A modern digital agency landing page built with **Next.js 14**, **Tailwind CSS v
 
 ## Features
 
-- **10 Themes** — Dark, Light, Cupcake, Cyberpunk, Forest, Aqua, Luxury, Dracula, Nord, Sunset
-- **Three.js Hero** — Animated particle canvas rendered on the hero background
-- **Typing Text Effect** — Animated rotating headline text
-- **Cursor Glow** — Smooth cursor follow glow effect
-- **Marquee** — Auto-scrolling client logo strip
-- **Scroll Reveal Animations** — IntersectionObserver-based entrance animations
-- **Animated Stat Counters** — Numbers count up on scroll into view
-- **Card Tilt Effect** — Mouse-tracking 3D tilt on cards
-- **Responsive Design** — Mobile-first with full-screen mobile nav overlay
-- **Legal Pages** — Privacy Policy, Terms & Conditions, and Sitemap pages included
+- **10 Themes** ~ Dark, Light, Cupcake, Cyberpunk, Forest, Aqua, Luxury, Dracula, Nord, Sunset
+- **Three.js Hero** ~ Animated particle canvas rendered on the hero background
+- **Typing Text Effect** ~ Animated rotating headline text
+- **Cursor Glow** ~ Smooth cursor follow glow effect
+- **Marquee** ~ Auto-scrolling client logo strip
+- **Scroll Reveal Animations** ~ IntersectionObserver-based entrance animations
+- **Animated Stat Counters** ~ Numbers count up on scroll into view
+- **Card Tilt Effect** ~ Mouse-tracking 3D tilt on cards
+- **Responsive Design** ~ Mobile-first with full-screen mobile nav overlay
+- **Legal Pages** ~ Privacy Policy, Terms & Conditions, and Sitemap pages included
 
 ---
 
@@ -86,7 +86,7 @@ nexcorp/
 │   │   └── page.tsx          # Terms & conditions page
 │   ├── globals.css            # Global styles + Tailwind directives
 │   ├── layout.tsx             # Root layout with ThemeProvider & metadata
-│   └── page.tsx               # Home page — composes all sections
+│   └── page.tsx               # Home page ~ composes all sections
 ├── components/
 │   ├── Navbar.tsx             # Sticky navbar with scroll blur
 │   ├── MobileMenu.tsx         # Full-screen mobile nav overlay
@@ -144,4 +144,4 @@ nexcorp/
 
 ---
 
-Built by **[Rayn](https://rayn.web.id)** — rayn.web.id
+Built by **[Rayn](https://rayn.web.id)** ~ rayn.web.id
